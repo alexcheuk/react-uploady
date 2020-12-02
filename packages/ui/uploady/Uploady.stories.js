@@ -182,13 +182,8 @@ export default {
 	component: Uploady,
     title: "Uploady",
     parameters: {
-        readme: {
-            sidebar: readme,
-        },
-        options: {
-            showPanel: true,
-            //needed until storybook-readme fixes their bug - https://github.com/tuchk4/storybook-readme/issues/221
-            theme: {}
+        docs: {
+            description: { component: readme },
         },
     },
 };

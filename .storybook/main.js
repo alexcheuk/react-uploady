@@ -25,8 +25,9 @@ module.exports = {
     stories: async () => {
         const paths = await glob(
             [
-                "../packages/**/*.stories.js",
-                "!../packages/**/node_modules"
+                "../packages/ui/uploady/*.stories.js",
+                // "../packages/**/*.stories.js",
+                // "!../packages/**/node_modules"
             ],
            { cwd: path.join(process.cwd(), ".storybook") });
 
@@ -34,10 +35,8 @@ module.exports = {
     },
 
     addons: [
-        "@storybook/addon-actions",
-        "@storybook/addon-knobs",
+        "@storybook/addon-essentials",
         "@storybook/addon-storysource",
-        "storybook-readme/register",
         // "./.storybook/cypressAddon/register",
     ],
 
@@ -52,7 +51,7 @@ module.exports = {
         });
 
         config.plugins.push(new webpack.DefinePlugin({
-            "rpldyVersion": config.mode !== "development" && JSON.stringify(await getCurrentNpmVersion()),
+            "rpldyVersion": JSON.stringify(config.mode !== "development" ? await getCurrentNpmVersion() : ["DEV"] ),
             "LOCAL_PORT": `"${process.env.LOCAL_PORT}"`,
         }));
 

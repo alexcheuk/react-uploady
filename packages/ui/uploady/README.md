@@ -570,6 +570,8 @@ Uploady will check whether the input resides in a form. It will then use the for
  
 > In case the form's attributes were used for the upload destination, updating the form's attributes dynamically won't affect the uploader configuration once it was set.
  
+ 
+
 ```javascript
 import Uploady, { useFileInput } from "@rpldy/uploady";
 import UploadButton from "@rpldy/upload-button";
@@ -609,6 +611,7 @@ A good example use-case for this is applying [crop](../../../guides/Crop.md) to 
 When rendering the HOC's output, the id of the batch-item must be provided as a prop. 
 This ensures the HOC only re-renders for a specific item and not for all.
 The id of the batch-item can be obtained from a hook (ex: [useItemStartListener](#useitemstartlistener-event-hook) or [useBatchStartListener](#usebatchstartlistener-event-hook))
+
 
 ```javascript
     import React, { useState, useCallback } from "react";
